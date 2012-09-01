@@ -1,4 +1,6 @@
 SistemaCoordinador::Application.routes.draw do
+  resources :estudiantes
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
