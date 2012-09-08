@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pensum: 
+  descripcion: MyString
+  cantidad: 1
+
+two:
+  pensum: 
+  descripcion: MyString
+  cantidad: 1

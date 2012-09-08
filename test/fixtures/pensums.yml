@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fecha_creacion: 2012-09-01
+  nombre: MyString
+  maestria: 
+
+two:
+  fecha_creacion: 2012-09-01
+  nombre: MyString
+  maestria: 
