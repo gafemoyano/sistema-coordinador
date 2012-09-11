@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901221438) do
+ActiveRecord::Schema.define(:version => 20120910185035) do
+
+  create_table "estudiantemaestria", :force => true do |t|
+    t.integer  "estudiante_id"
+    t.integer  "maestria_id"
+    t.integer  "pensum_id"
+    t.string   "estado"
+    t.string   "carpeta"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "estudiantemaestria", ["estudiante_id"], :name => "index_estudiantemaestria_on_estudiante_id"
+  add_index "estudiantemaestria", ["maestria_id"], :name => "index_estudiantemaestria_on_maestria_id"
+  add_index "estudiantemaestria", ["pensum_id"], :name => "index_estudiantemaestria_on_pensum_id"
+
+  create_table "estudiantemateria", :force => true do |t|
+    t.integer  "estudiante_id"
+    t.integer  "materia_id"
+    t.integer  "tipo_pensum_id"
+    t.string   "estado"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "estudiantemateria", ["estudiante_id"], :name => "index_estudiantemateria_on_estudiante_id"
+  add_index "estudiantemateria", ["materia_id"], :name => "index_estudiantemateria_on_materia_id"
+  add_index "estudiantemateria", ["tipo_pensum_id"], :name => "index_estudiantemateria_on_tipo_pensum_id"
 
   create_table "estudiantes", :force => true do |t|
     t.integer  "usuario_id"
