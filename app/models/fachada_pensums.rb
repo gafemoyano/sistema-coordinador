@@ -3,8 +3,8 @@ class FachadaPensums
      #Se obtiene el estudiante
      @estudiante = Estudiante.find(idEstudiante)
      #Se obtienen las maestrias
-     @estudiantemaestrias = @estudiante.estudianteMaestrias
-     @estudiantematerias = @estudiante.estudianteMaterias
+     @estudiantemaestrias = @estudiante.estudiantemaestrias
+     @estudiantematerias = @estudiante.estudiantematerias
      @materiasVistas = {}
      @estudiantemaestrias.each do |estm|
        if (estm.maestria.id == idMaestria) then

@@ -1,4 +1,4 @@
 class Materia < ActiveRecord::Base
   belongs_to :maestria
-  attr_accessible :materia, :nombre
+  attr_accessible :codigo, :nombre, :maestria
 end
