@@ -1,4 +1,6 @@
 class Estudiante < ActiveRecord::Base
   belongs_to :usuario
-  attr_accessible :direccion, :foto, :telefono, :tipo
+  has_many :estudiantemaestrias
+  has_many :estudiantematerias
+  attr_accessible :direccion, :foto, :telefono, :tipo, :usuario
 end
