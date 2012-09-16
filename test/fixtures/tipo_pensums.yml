@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  pensum: 
-  descripcion: MyString
-  cantidad: 1
+  pensum_id: 1
+  descripcion: Obligatorias
+  cantidad: 2
 
 two:
-  pensum: 
-  descripcion: MyString
-  cantidad: 1
+  pensum_id: 1
+  descripcion: Del area
+  cantidad: 3

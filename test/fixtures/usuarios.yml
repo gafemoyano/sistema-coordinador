@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  documento: MyString
-  tipo_documento: MyString
-  nombres: MyString
-  apellido: MyString
-  login: 
-  tipo_usuario: MyString
+  id: 1
+  documento: 73876271
+  tipo_documento: CC
+  nombres: Lisa
+  apellido: Simpson
+  login: lsimpson
+  tipo_usuario: Estudiante
 
 two:
-  documento: MyString
-  tipo_documento: MyString
-  nombres: MyString
-  apellido: MyString
-  login: 
-  tipo_usuario: MyString
+  id: 2
+  documento: 93829728
+  tipo_documento: CC
+  nombres: Carlos
+  apellido: Diaz
+  login: cdiaz
+  tipo_usuario: Coordinador

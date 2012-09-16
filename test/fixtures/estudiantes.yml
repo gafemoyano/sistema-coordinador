@@ -1,15 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  usuario: 
+  id: 1
+  usuario_id: 1 
   foto: MyString
-  direccion: MyString
-  telefono: MyString
-  tipo: MyString
+  direccion: Avenida siempre viva no. 221
+  telefono: 3323223
+  tipo: maestria
 
-two:
-  usuario: 
-  foto: MyString
-  direccion: MyString
-  telefono: MyString
-  tipo: MyString
+#two:
+# usuario: 
+#  foto: MyString
+#  direccion: MyString
+#  telefono: MyString
+#  tipo: MyString
