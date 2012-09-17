@@ -14,5 +14,7 @@ tipospensumMisis = TipoPensum.create([{cantidad: 3, descripcion: 'Obligatorias',
 tipospensumMati = TipoPensum.create([{cantidad: 3, descripcion: 'Obligatorias basicas', pensum: pensums.last}, {cantidad: 2, descripcion: 'Profundizacion', pensum: pensums.last}, {cantidad: 1, descripcion: 'Materias MISIS', pensum: pensums.last}])
 materiasMisis = Materia.create([{codigo: 'MISIS-4000', nombre: 'Tesis 1', maestria: maestrias.first}, {codigo: 'MISIS-4001', nombre: 'Tesis 2', maestria: maestrias.first}, {codigo: 'MISIS-4002', nombre: 'Tutorial', maestria: maestrias.first}, {codigo: 'MISIS-4003', nombre: 'Tutorial especial', maestria: maestrias.first}, {codigo: 'MISIS-4004', nombre: 'Arquitecturas de datos', maestria: maestrias.first}])
 materiasMati = Materia.create([{codigo: 'MATI-4000', nombre: 'Tesis 1', maestria: maestrias.last}, {codigo: 'MATI-4001', nombre: 'Tesis 2', maestria: maestrias.last}, {codigo: 'MATI-4002', nombre: 'Tutorial', maestria: maestrias.last}, {codigo: 'MATI-4003', nombre: 'Tutorial especial', maestria: maestrias.last}, {codigo: 'MATI-4004', nombre: 'Procesos agiles de desarrollo de software', maestria: maestrias.last}])
-estudiantes = Estudiante.create([{usuario: usuarios.first, direccion: 'Avenida siempre viva no. 221', telefono: '3323223', tipo: 'maestria'}])
+estudiantes =  Estudiante.create([{direccion: 'Avenida siempre viva no. 221', telefono: '3323223', tipo: 'maestria'}])
+Usuario.first.estudiante = estudiantes.first
 estudiantesmaestrias = Estudiantemaestria.create([{estado:'En curso',carpeta:'Carpeta MISIS Lisa Simpson', estudiante: estudiantes.first, maestria: maestrias.first, pensum: pensums.first }])
+

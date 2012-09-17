@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Razon:</b>
+  <%= @homologacion.razon %>
+</p>
+
+<p>
+  <b>Estudiante:</b>
+  <%= @homologacion.estudiante %>
+</p>
+
+<p>
+  <b>Materia:</b>
+  <%= @homologacion.materia %>
+</p>
+
+
+<%= link_to 'Edit', edit_homologacion_path(@homologacion) %> |
+<%= link_to 'Back', homologacions_path %>
