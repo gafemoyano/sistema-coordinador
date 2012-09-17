@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   fecha_creacion: 2012-09-01
-  nombre: MyString
-  maestria: 
+  nombre: Pensum MISIS 1
+  maestria: 1
 
 two:
+  id: 2
   fecha_creacion: 2012-09-01
-  nombre: MyString
-  maestria: 
+  nombre: Pensum MATI 1
+  maestria: 2

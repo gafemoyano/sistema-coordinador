@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  maestria: 
-  nombre: MyString
-  materia: 
+  id: 1
+  maestria_id: 1 
+  nombre: Tesis 1
+  codigo: MISIS-4000
 
 two:
-  maestria: 
-  nombre: MyString
-  materia: 
+  id: 2
+  maestria_id: 1 
+  nombre: Tesis 2
+  codigo: MISIS-4001
