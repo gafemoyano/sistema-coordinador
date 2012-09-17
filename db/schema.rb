@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910185035) do
+ActiveRecord::Schema.define(:version => 20120916000331) do
+
+  create_table "coordinadors", :force => true do |t|
+    t.integer  "usuario_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "estudiantemaestria", :force => true do |t|
     t.integer  "estudiante_id"
@@ -51,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20120910185035) do
   end
 
   add_index "estudiantes", ["usuario_id"], :name => "index_estudiantes_on_usuario_id"
+
+  create_table "homologacions", :force => true do |t|
+    t.text     "razon"
+    t.integer  "estudiante_id"
+    t.integer  "materia_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "homologacions", ["estudiante_id"], :name => "index_homologacions_on_estudiante_id"
+  add_index "homologacions", ["materia_id"], :name => "index_homologacions_on_materia_id"
 
   create_table "horarios", :force => true do |t|
     t.date     "dia"
