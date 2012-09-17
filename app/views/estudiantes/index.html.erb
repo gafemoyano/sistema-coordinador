@@ -1,6 +1,24 @@
-<table>
+<h1>Listing homologacions</h1>
 
+<table>
   <tr>
-    <td><%= link_to 'Solicitar Homologacion', solicitar_homologacion_path %></td>
+    <th>Nombre</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
+
+<% @estudiante.each do |estudiante| %>
+  <tr>
+    <td><%= estudiante.usuario.nombres %></td>
+    <td><%= estudiante.direccion %></td>
+    <td><%= estudiante.telefono %></td>
+    <td><%= link_to 'Ver', estudiante %></td>
+    <td><%= link_to 'Solicitar Homologacion',  new_estudiante_homologacion_path(estudiante) %></td>
+  </tr>
+<% end %>
 </table>
+
+<br />

@@ -1,63 +1,58 @@
 class HomologacionsController < ApplicationController
-  # GET /homologacions
-  # GET /homologacions.json
+
   def index
     @homologacions = Homologacion.all
-
+    @estudiante = Estudiante.find(params[:estudiante_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @homologacions }
     end
   end
 
-  # GET /homologacions/1
-  # GET /homologacions/1.json
+
   def show
     @homologacion = Homologacion.find(params[:id])
-
+    @estudiante = Estudiante.find(params[:estudiante_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @homologacion }
     end
   end
 
-  # GET /homologacions/new
-  # GET /homologacions/new.json
+
   def new
     @homologacion = Homologacion.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @homologacion }
-    end
+    @estudiante = Estudiante.find(params[:estudiante_id])
+    programa = 
+    @materias = Materia.
   end
 
-  # GET /homologacions/1/edit
+
   def edit
     @homologacion = Homologacion.find(params[:id])
   end
 
-  # POST /homologacions
-  # POST /homologacions.json
+
   def create
     @homologacion = Homologacion.new(params[:homologacion])
-
+    @estudiante = Estudiante.find(params[:estudiante_id])
     respond_to do |format|
       if @homologacion.save
-        format.html { redirect_to @homologacion, notice: 'Homologacion was successfully created.' }
-        format.json { render json: @homologacion, status: :created, location: @homologacion }
+        flash[:notice] = 'Homologacion was successfully created.'
+        redirect_to estudiante_url(@estudiante)
+        #format.html { redirect_to @homologacion, notice: 'Homologacion was successfully created.' }
+        #format.json { render json: @homologacion, status: :created, location: @homologacion }
       else
-        format.html { render action: "new" }
-        format.json { render json: @homologacion.errors, status: :unprocessable_entity }
+        render :action=>'new'
+        #format.html { render action: "new" }
+        #format.json { render json: @homologacion.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /homologacions/1
-  # PUT /homologacions/1.json
   def update
     @homologacion = Homologacion.find(params[:id])
-
+    @estudiante = Estudiante.find(params[:estudiante_id])
     respond_to do |format|
       if @homologacion.update_attributes(params[:homologacion])
         format.html { redirect_to @homologacion, notice: 'Homologacion was successfully updated.' }
@@ -69,8 +64,7 @@ class HomologacionsController < ApplicationController
     end
   end
 
-  # DELETE /homologacions/1
-  # DELETE /homologacions/1.json
+
   def destroy
     @homologacion = Homologacion.find(params[:id])
     @homologacion.destroy

@@ -1,4 +1,4 @@
-<%= form_for(@homologacion) do |f| %>
+<%= form_for([@estudiante,@homologacion]) do |f| %>
   <% if @homologacion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@homologacion.errors.count, "error") %> prohibited this homologacion from being saved:</h2>
@@ -15,10 +15,7 @@
     <%= f.label :razon %><br />
     <%= f.text_area :razon %>
   </div>
-  <div class="field">
-    <%= f.label :estudiante %><br />
-    <%= f.text_field :estudiante %>
-  </div>
+
   <div class="field">
     <%= f.label :materia %><br />
     <%= f.text_field :materia %>
