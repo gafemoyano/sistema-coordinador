@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :materia %><br />
-    <%= f.text_field :materia %>
+	<%= collection_select(:select_materia, :materia_id, @materias, :id, :nombre)%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -22,9 +22,8 @@ class HomologacionsController < ApplicationController
 
   def new
     @homologacion = Homologacion.new
-    @estudiante = Estudiante.find(params[:estudiante_id])
-    programa = 
-    @materias = Materia.
+    @estudiante = Estudiante.find(params[:estudiante_id]) 
+    @materias = @estudiante.maestria.first.materia
   end
 
 
@@ -34,20 +33,30 @@ class HomologacionsController < ApplicationController
 
 
   def create
+    @materia_seleccionada = Materia.new
     @homologacion = Homologacion.new(params[:homologacion])
     @estudiante = Estudiante.find(params[:estudiante_id])
-    respond_to do |format|
-      if @homologacion.save
-        flash[:notice] = 'Homologacion was successfully created.'
-        redirect_to estudiante_url(@estudiante)
-        #format.html { redirect_to @homologacion, notice: 'Homologacion was successfully created.' }
+    @homologacion.estudiante = @estudiante
+    @homologacion.materia = Materia.find(params[:select_materia][:materia_id])
+    @homologacion.estado = 'pendiente'
+    Homologacion.enviar_solicitud @homologacion
+    if @homologacion.save
+      flash[:notice] = "Solicitud enviada exitosamente"
+      redirect_to @estudiante
+    else
+      flash[:notice] = "Error al enviar solicitud"
+      redirect_to @estudiante
+    end
+    #respond_to do |format|
+    #  if @homologacion.save
+    #    format.html { redirect_to @estudiante, notice: 'Solicitud enviada con exito' }
         #format.json { render json: @homologacion, status: :created, location: @homologacion }
-      else
-        render :action=>'new'
+    #  else
+    #    redirect_to estudiante_url(params[:estudiante_id])
         #format.html { render action: "new" }
         #format.json { render json: @homologacion.errors, status: :unprocessable_entity }
-      end
-    end
+    #  end
+    # end
   end
 
   def update
@@ -69,9 +78,5 @@ class HomologacionsController < ApplicationController
     @homologacion = Homologacion.find(params[:id])
     @homologacion.destroy
 
-    respond_to do |format|
-      format.html { redirect_to homologacions_url }
-      format.json { head :no_content }
-    end
   end
 end

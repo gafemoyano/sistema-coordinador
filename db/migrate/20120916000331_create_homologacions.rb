@@ -2,8 +2,10 @@ class CreateHomologacions < ActiveRecord::Migration
   def up
     create_table :homologacions do |t|
       t.text :razon
+      t.string :estado
       t.references :estudiante
       t.references :materia
+      t.references :coordinador
 
       t.timestamps
     end

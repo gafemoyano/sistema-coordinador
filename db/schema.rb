@@ -11,12 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917182256) do
+ActiveRecord::Schema.define(:version => 20120917213552) do
 
   create_table "coordinadors", :force => true do |t|
+    t.string   "documento"
+    t.string   "tipo_documento"
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "login"
+    t.string   "password"
+    t.string   "email"
     t.integer  "usuario_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "maestria_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "estudiantemaestria", :force => true do |t|
@@ -60,10 +68,12 @@ ActiveRecord::Schema.define(:version => 20120917182256) do
 
   create_table "homologacions", :force => true do |t|
     t.text     "razon"
+    t.string   "estado"
     t.integer  "estudiante_id"
     t.integer  "materia_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "coordinador_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "homologacions", ["estudiante_id"], :name => "index_homologacions_on_estudiante_id"
@@ -95,8 +105,9 @@ ActiveRecord::Schema.define(:version => 20120917182256) do
     t.string   "nombre"
     t.string   "codigo"
     t.integer  "usuario_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "coordinador_id"
   end
 
   add_index "maestria", ["usuario_id"], :name => "index_maestria_on_usuario_id"
