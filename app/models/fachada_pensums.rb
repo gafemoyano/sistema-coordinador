@@ -5,6 +5,7 @@ class FachadaPensums
      #Se obtienen las maestrias
      @estudiantemaestrias = @estudiante.estudiantemaestrias
      @estudiantematerias = @estudiante.estudiantematerias
+     
      @materiasVistas = {}
      @estudiantemaestrias.each do |estm|
        if (estm.maestria.id == idMaestria) then
@@ -16,7 +17,8 @@ class FachadaPensums
            @materiasPensum = tipoPensum.materias
            @materiasPensum.each do |materiaPensum|
             @estudiantematerias.each do |estudianteMateria|  
-              if estudianteMateria.materia.id == materiaPensum.id then
+              if (estudianteMateria.materia.id == materiaPensum.id and
+                estudianteMateria.estado == 'Aprobada') then
                 @materiasTipo[@i] = materiaPensum 
                 @i = @i + 1
               end 

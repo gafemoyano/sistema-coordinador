@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120910185035) do
 
   add_index "materia", ["maestria_id"], :name => "index_materia_on_maestria_id"
 
-  create_table "materias_tipo_pensums", :id => false, :force => true do |t|
+  create_table "materia_tipo_pensums", :id => false, :force => true do |t|
     t.integer  "materia_id"
     t.integer  "tipo_pensum_id"
     t.datetime "created_at",     :null => false
