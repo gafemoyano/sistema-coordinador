@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Nombres:</b>
+  <%= @estudiante.usuario.nombres %>
+</p>
+
+<p>
+  <b>Apellido:</b>
+  <%= @estudiante.usuario.apellido %>
+</p>
+
+<p>
+  <b>Documento:</b>
+  <%= @estudiante.usuario.documento %>
+</p>
+<p>
+  <b>Direccion</b>
+  <%= @estudiante.direccion %>
+</p>
+
+<p>
+  <b>Direccion</b>
+  <%= @estudiante.telefono %>
+</p>
+
+
+<%= link_to 'Solicitar Homologacion',  new_estudiante_homologacion_path(@estudiante) %>|
+<%= link_to 'Back', estudiantes_path %>

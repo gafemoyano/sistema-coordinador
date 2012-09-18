@@ -1,5 +1,9 @@
 SistemaCoordinador::Application.routes.draw do
-  resources :estudiantes
+
+  resources :estudiantes do
+      resources :homologacions
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

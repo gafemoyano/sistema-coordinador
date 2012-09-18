@@ -1,0 +1,21 @@
+<h1>Listing coordinadors</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coordinadors.each do |coordinador| %>
+  <tr>
+    <td><%= link_to 'Show', coordinador %></td>
+    <td><%= link_to 'Edit', edit_coordinador_path(coordinador) %></td>
+    <td><%= link_to 'Destroy', coordinador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coordinador', new_coordinador_path %>
