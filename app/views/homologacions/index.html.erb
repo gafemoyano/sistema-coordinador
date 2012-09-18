@@ -2,26 +2,24 @@
 
 <table>
   <tr>
-    <th>Razon</th>
     <th>Estudiante</th>
     <th>Materia</th>
-    <th></th>
+    <th>Estado</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @homologacions.each do |homologacion| %>
   <tr>
-    <td><%= homologacion.razon %></td>
-    <td><%= homologacion.estudiante %></td>
-    <td><%= homologacion.materia %></td>
-    <td><%= link_to 'Show', homologacion %></td>
-    <td><%= link_to 'Edit', edit_homologacion_path(homologacion) %></td>
+    <td><%= homologacion.estudiante.usuario.nombres if homologacion.estudiante %></td>
+    <td><%= homologacion.materia.nombre if homologacion.estudiante %></td>
+    <td><%= homologacion.estado %></td>
+    <%if @coordinador%>
+        <td><%= link_to 'Responder', edit_homologacion_path(homologacion) %></td>
+    <%end%>
     <td><%= link_to 'Destroy', homologacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Homologacion', new_homologacion_path %>

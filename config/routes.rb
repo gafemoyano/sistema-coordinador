@@ -1,9 +1,14 @@
 SistemaCoordinador::Application.routes.draw do
 
   resources :estudiantes do
-      resources :homologacions
+      resources :homologacions,  :only => [:new, :create, :index]
   end
-
+  
+  resources :coordinadors do
+    resources :homologacions, :only => [:index]
+  end
+  resources :homologacions, :only => [:edit, :update]
+  #match 'coordinadors/:id/homologaciones' => 'coordinadors#homologaciones', :as => :coordinador_homologaciones
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

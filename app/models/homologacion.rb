@@ -2,10 +2,10 @@ class Homologacion < ActiveRecord::Base
   belongs_to :estudiante
   belongs_to :coordinador
   belongs_to :materia
-  attr_accessible :razon
+  attr_accessible :razon, :estado, :comentarios
   
-  def enviar_solicitud(homologacion)
-    coordinardor = homologacion.materia.maestria.coordinador
+  def self.enviar_solicitud(homologacion)
+    coordinador = homologacion.materia.maestria.coordinador
     coordinador.homologacions<<homologacion
   end
   

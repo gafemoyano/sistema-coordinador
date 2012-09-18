@@ -1,14 +1,13 @@
 class HomologacionsController < ApplicationController
-
   def index
-    @homologacions = Homologacion.all
-    @estudiante = Estudiante.find(params[:estudiante_id])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @homologacions }
+    if params[:coordinador_id]
+    @coordinador = Coordinador.find(params[:coordinador_id])
+    @homologacions = @coordinador.homologacions
+    elsif params[:estudiante_id]
+      @estudiante = Estudiante.find(params[:estudiante_id])
+      @homologacions = @estudiante.homologacions
     end
   end
-
 
   def show
     @homologacion = Homologacion.find(params[:id])
@@ -19,18 +18,15 @@ class HomologacionsController < ApplicationController
     end
   end
 
-
   def new
     @homologacion = Homologacion.new
-    @estudiante = Estudiante.find(params[:estudiante_id]) 
+    @estudiante = Estudiante.find(params[:estudiante_id])
     @materias = @estudiante.maestria.first.materia
   end
-
 
   def edit
     @homologacion = Homologacion.find(params[:id])
   end
-
 
   def create
     @materia_seleccionada = Materia.new
@@ -47,32 +43,20 @@ class HomologacionsController < ApplicationController
       flash[:notice] = "Error al enviar solicitud"
       redirect_to @estudiante
     end
-    #respond_to do |format|
-    #  if @homologacion.save
-    #    format.html { redirect_to @estudiante, notice: 'Solicitud enviada con exito' }
-        #format.json { render json: @homologacion, status: :created, location: @homologacion }
-    #  else
-    #    redirect_to estudiante_url(params[:estudiante_id])
-        #format.html { render action: "new" }
-        #format.json { render json: @homologacion.errors, status: :unprocessable_entity }
-    #  end
-    # end
   end
 
   def update
     @homologacion = Homologacion.find(params[:id])
-    @estudiante = Estudiante.find(params[:estudiante_id])
-    respond_to do |format|
-      if @homologacion.update_attributes(params[:homologacion])
-        format.html { redirect_to @homologacion, notice: 'Homologacion was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @homologacion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
+    if @homologacion.update_attributes(params[:homologacion])
+      flash[:notice] = "Solicitud enviada exitosamente"
+      redirect_to @homologacion.coordinador
+    else
+      flash[:notice] = "Error al enviar solicitud"
+      render :edit
+    end
+
+  end
 
   def destroy
     @homologacion = Homologacion.find(params[:id])

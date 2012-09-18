@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917213552) do
+ActiveRecord::Schema.define(:version => 20120918162050) do
 
   create_table "coordinadors", :force => true do |t|
     t.string   "documento"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120917213552) do
     t.integer  "coordinador_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.text     "comentarios"
   end
 
   add_index "homologacions", ["estudiante_id"], :name => "index_homologacions_on_estudiante_id"
@@ -122,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20120917213552) do
 
   add_index "materia", ["maestria_id"], :name => "index_materia_on_maestria_id"
 
-  create_table "materia_tipo_pensums", :id => false, :force => true do |t|
+  create_table "materias_tipo_pensums", :id => false, :force => true do |t|
     t.integer  "materia_id"
     t.integer  "tipo_pensum_id"
     t.datetime "created_at",     :null => false

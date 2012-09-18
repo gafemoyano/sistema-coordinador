@@ -1,6 +1,40 @@
-<h1>Editing homologacion</h1>
+<h1>Responder Solicitud</h1>
 
-<%= render 'form' %>
+<%= form_for @homologacion do |f| %>
+  <% if @homologacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@homologacion.errors.count, "error") %> prohibited this homologacion from being saved:</h2>
 
-<%= link_to 'Show', @homologacion %> |
-<%= link_to 'Back', estudiante_homologacions_path %>
+      <ul>
+      <% @homologacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+  <b>Razon:</b>
+  <%= @homologacion.razon %>
+</p>
+<p>
+  <b>Estudiante:</b>
+  <%= @homologacion.estudiante %>
+</p>
+
+<p>
+  <b>Materia:</b>
+  <%= @homologacion.materia %>
+</p>
+  <div class="field">
+    <%= f.label :comentarios %><br />
+    <%= f.text_area :comentarios %>
+  </div>
+
+<%= f.select(:estado, [['Pendiente', 'pendiente'], ['Aprobado', 'aprobado'],['Rechazado','rechazado']]) %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

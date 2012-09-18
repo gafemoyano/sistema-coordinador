@@ -1,5 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Nombre:</b>
+  <%= @coordinador.nombre %>
+</p>
 
-<%= link_to 'Edit', edit_coordinador_path(@coordinador) %> |
+<p>
+  <b>Apellido:</b>
+  <%= @coordinador.apellido %>
+</p>
+
+<p>
+  <b>Documento:</b>
+  <%= @coordinador.documento %>
+</p>
+
+<p>
+  <b>Maestria:</b>
+<%= @coordinador.maestria.nombre if @coordinador.maestria %>
+
+</p>
+
+<%= link_to 'Ver Solicitudes de Homologacion', coordinador_homologacions_path(@coordinador) %>
+
+<%= link_to 'Editar datos', edit_coordinador_path(@coordinador) %> |
 <%= link_to 'Back', coordinadors_path %>
