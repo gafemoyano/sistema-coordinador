@@ -1,0 +1,40 @@
+
+	<div align="center" style="width: 100%;">
+		<img src="<%=asset_path "logo.png"%>" style="width: 800px; height: 200px" />
+    <%= form_tag '/login#create' do %>
+	<div align="center" style="width: 100%;">
+		<h3>Bienvenido, por favor digite sus credenciales</h3>
+	</div>
+	<table width="400px" height="150px" style="background-color: gainsboro">
+		<tr>
+			<td align="right">
+				Usuario
+			</td>
+			<td>
+				<%= text_field_tag :login %>
+			</td>
+		</tr>
+		<tr >
+			<td align="right">
+  				Contraseña
+  			</td>
+  			<td>
+  				<%= password_field_tag :password %>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td style="color: red; font-size: 8pt; font-family: Courier" align="center" colspan="2">
+  				<% if flash[:notice] %>
+					<%= h flash[:notice] %>
+				<% end %>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td colspan="2" align="center">
+  				<%= submit_tag 'Ingresar' %>
+  			</td>
+  		</tr>
+  	</table>
+  	<% end %>
+	</div>
+	

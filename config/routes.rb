@@ -1,5 +1,10 @@
 SistemaCoordinador::Application.routes.draw do
+  resources :login
+  resources :coordinadores
   resources :estudiantes
+  #match "login/ingresar", :to =>'login', :action => /[a-z_]+/i
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

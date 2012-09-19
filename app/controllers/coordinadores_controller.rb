@@ -1,5 +1,5 @@
-class EstudiantesController < ApplicationController
-  
+class CoordinadoresController < ApplicationController
+   
   def index
     if session[:login]
     
