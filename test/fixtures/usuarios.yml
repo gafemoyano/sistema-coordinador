@@ -7,7 +7,8 @@ one:
   nombres: Lisa
   apellido: Simpson
   login: lsimpson
-  tipo_usuario: Estudiante
+  password: 123456
+  tipo_usuario: estudiante
 
 two:
   id: 2
@@ -15,5 +16,16 @@ two:
   tipo_documento: CC
   nombres: Carlos
   apellido: Diaz
-  login: cdiaz
-  tipo_usuario: Coordinador
+  login: ce.diaz30
+  password: 123456
+  tipo_usuario: estudiante
+  
+three:
+  id: 3
+  documento: 80032026
+  tipo_documento: CC
+  nombres: Diego
+  apellido: Ordoñez
+  login: df.ordonez94
+  password: 123456
+  tipo_usuario: coordinador

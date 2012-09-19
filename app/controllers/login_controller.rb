@@ -1,23 +1,21 @@
 class LoginController < ApplicationController 
-
-
   # GET /login
   def index
-    session.delete[:login] = nil
+    session[:login] = nil
   end
   
   # GET /login
   def create
-    session.delete[:login] = nil
+    session[:login] = nil
     @usuario = Usuario.find(:first, :conditions => [ "login = ? and password = ?", params[:login], params[:password]])
     if @usuario
       if @usuario.tipo_usuario == "coordinador"
         session[:login] = params[:login]
-        redirect_to coordinadores_path
+        redirect_to menucoordinadores_path
       else
         if @usuario.tipo_usuario == "estudiante"
           session[:login] = params[:login]
-          redirect_to estudiantes_path
+          redirect_to menuestudiantes_path
         else
           flash[:notice] = "El usuario no tiene rol asociado"
           redirect_to :action => index
