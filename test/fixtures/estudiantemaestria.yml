@@ -1,0 +1,8 @@
+one:
+  id: 1
+  estudiante_id: 1
+  maestria_id: 1
+  pensum_id: 1
+  estado: 'En curso'
+  carpeta: 'Carpeta de MISIS de Lisa Simpson'
+  

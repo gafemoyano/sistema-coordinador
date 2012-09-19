@@ -1,0 +1,30 @@
+<h1>Listing coordinadors</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Documento</th>
+    <th>Maestria</th>
+  </tr>
+
+<% @coordinadors.each do |coordinador| %>
+  <tr>
+  	<td><%= coordinador.nombre %></td>
+    <td><%= coordinador.apellido %></td>
+    <td><%= coordinador.documento %></td>
+    <% if coordinador.maestria.nil?%>
+    <td>Ninguna</td>
+    <%else%>
+    <td><%= coordinador.maestria.nombre %></td>
+    <%end%>
+    <td><%= link_to 'Ver', coordinador %></td>
+    <td><%= link_to 'Editar', edit_coordinador_path(coordinador) %></td>
+    <td><%= link_to 'Eliminar', coordinador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coordinador', new_coordinador_path %>

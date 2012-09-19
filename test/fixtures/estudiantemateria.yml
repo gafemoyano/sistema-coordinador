@@ -1,0 +1,13 @@
+one:
+  id: 1
+  estudiante_id: 1
+  materia_id: 2
+  estado: 'Planeada'
+  tipo_pensum_id: 1
+two:
+  id: 2
+  estudiante_id: 1
+  materia_id: 1
+  estado: 'Aprobada'
+  tipo_pensum_id: 1
+  

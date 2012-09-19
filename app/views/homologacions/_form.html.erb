@@ -1,0 +1,26 @@
+<%= form_for([@estudiante,@homologacion]) do |f| %>
+  <% if @homologacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@homologacion.errors.count, "error") %> prohibited this homologacion from being saved:</h2>
+
+      <ul>
+      <% @homologacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :razon %><br />
+    <%= f.text_area :razon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :materia %><br />
+	<%= collection_select(:select_materia, :materia_id, @materias, :id, :nombre)%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-class CoordinadoresController < ApplicationController
+class MenuEstudiantesController < ApplicationController
    
   def index
     if session[:login]

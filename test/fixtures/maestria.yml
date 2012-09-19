@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  nombre: MyString
-  codigo: MyString
-  usuario: 
+  id: 1
+  nombre: Maestria en ingenieria de sistemas
+  codigo: MISIS
+  usuario_id: 2
 
 two:
-  nombre: MyString
-  codigo: MyString
-  usuario: 
+  id: 2
+  nombre: Maestria en tecnologias de informacion
+  codigo: MATI 
+  usuario_id: 2

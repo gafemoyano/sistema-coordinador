@@ -1,0 +1,42 @@
+<%= form_for(@coordinador) do |f| %>
+  <% if @coordinador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coordinador.errors.count, "error") %> prohibited this coordinador from being saved:</h2>
+
+      <ul>
+      <% @coordinador.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :apellido %><br />
+    <%= f.text_field :apellido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :documento %><br />
+    <%= f.text_field :documento %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :maestria %><br />
+	<%= collection_select(:select_maestria, :maestria_id, @maestrias, :id, :nombre)%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 class TipoPensum < ActiveRecord::Base
   belongs_to :pensum
-  attr_accessible :cantidad, :descripcion
+  has_and_belongs_to_many :materias
+  attr_accessible :cantidad, :descripcion, :pensum, :materias
 end

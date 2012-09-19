@@ -1,0 +1,9 @@
+<%= form_for(@estudiante) do |f| %>
+  <% if @estudiante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estudiante.errors.count, "error") %> prohibited this homologacion from being saved:</h2>
+
+    </div>
+  <% end %>
+
+<% end %>
